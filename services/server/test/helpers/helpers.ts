@@ -259,7 +259,7 @@ export function verifyAndAssertEtherscanViaApiV1(
     .field("chain", chainId);
   request.end(async (err, res) => {
     await assertVerification(
-      null,
+      serverFixture,
       err,
       res,
       done,
@@ -284,7 +284,7 @@ export function verifyAndAssertEtherscanSession(
     .field("chainId", chainId)
     .end(async (err, res) => {
       await assertVerificationSession(
-        null,
+        serverFixture,
         err,
         res,
         done,
