@@ -1,4 +1,4 @@
-\restrict A83zy5tw1A1hwszb9MuDfllmOnsJ9RjmflyL7FtxK1HcwQB5JaRhShE0bFShJal
+\restrict yQppNWxe8ghoVxGBkAbd5TxnAb1MlEKpVtN7abx5EsiVgVaJ3k1wmADfnIeiI0X
 
 -- Dumped from database version 16.0
 -- Dumped by pg_dump version 16.11 (Homebrew)
@@ -406,8 +406,8 @@ BEGIN
         is_jsonb_object(obj) AND
         validate_json_object_keys(
             obj,
-            array ['abi', 'userdoc', 'devdoc', 'sources', 'storageLayout'],
-            array []::text[]
+            array ['abi', 'sources'],
+            array ['userdoc', 'devdoc', 'storageLayout']
         ) AND
         validate_compilation_artifacts_abi(obj -> 'abi') AND
         validate_compilation_artifacts_sources(obj -> 'sources');
@@ -1110,7 +1110,7 @@ CREATE TABLE public.sourcify_matches (
     runtime_match character varying,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL,
-    metadata json NOT NULL
+    metadata json
 );
 
 
@@ -2171,7 +2171,7 @@ ALTER TABLE ONLY public.verified_contracts
 -- PostgreSQL database dump complete
 --
 
-\unrestrict A83zy5tw1A1hwszb9MuDfllmOnsJ9RjmflyL7FtxK1HcwQB5JaRhShE0bFShJal
+\unrestrict yQppNWxe8ghoVxGBkAbd5TxnAb1MlEKpVtN7abx5EsiVgVaJ3k1wmADfnIeiI0X
 
 
 --
@@ -2190,4 +2190,5 @@ INSERT INTO public.schema_migrations (version) VALUES
     ('20251101120000'),
     ('20251106144315'),
     ('20251219160923'),
-    ('20260126113330');
+    ('20260126113330'),
+    ('20260216165100');
