@@ -5,10 +5,11 @@ import {
   saveFilesToSession,
   verifyContractsInSession,
 } from "../../verification.common";
-import type {
-  ISolidityCompiler,
-  IVyperCompiler,
-  PathContent,
+import {
+  EtherscanUtils,
+  type ISolidityCompiler,
+  type IVyperCompiler,
+  type PathContent,
 } from "@ethereum-sourcify/lib-sourcify";
 import { BadRequestError } from "../../../../../common/errors";
 import {
@@ -45,6 +46,12 @@ export async function sessionVerifyFromEtherscan(req: Request, res: Response) {
     address,
     apiKey,
   );
+
+  if (EtherscanUtils.isVyperResult(etherscanResult)) {
+    throw new BadRequestError(
+      "Etherscan Vyper verification results are not supported in the session-based verification flow.",
+    );
+  }
 
   const compilation = await getCompilationFromEtherscanResultOrThrowV1Error(
     etherscanResult,
