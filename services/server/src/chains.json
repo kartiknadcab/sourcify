@@ -54292,5 +54292,36 @@
         "standard": "EIP3091"
       }
     ]
-  }
+  },
+  {
+  "name": "Datacore Smart Chain",
+  "title": "Datacore Smart Chain Mainnet",
+  "chain": "dsc",
+  "icon": "dsc",
+  "rpc": [
+    "https://rpc01.dscscan.io/"
+  ],
+  "features": [
+    { "name": "EIP155" },
+    { "name": "EIP1559" }
+  ],
+  "faucets": [],
+  "nativeCurrency": {
+    "name": "Datacore Smart Chain",
+    "symbol": "DSC",
+    "decimals": 18
+  },
+  "infoURL": "https://dscscan.io",
+  "shortName": "dsc",
+  "chainId": 1555,
+  "networkId": 1555,
+  "explorers": [
+    {
+      "name": "dscscan",
+      "url": "https://dscscan.io:3000",
+      "standard": "EIP3091"
+    }
+  ]
+}
+
 ]
